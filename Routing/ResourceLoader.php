@@ -48,7 +48,7 @@ final class ResourceLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function load($resource, $type = null): RouteCollection
+    public function load($resource, $type = null)
     {
         $processor = new Processor();
         $configurationDefinition = new Configuration();
@@ -114,7 +114,7 @@ final class ResourceLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function supports($resource, $type = null): bool
+    public function supports($resource, $type = null)
     {
         return 'sylius.resource' === $type || 'sylius.resource_api' === $type;
     }
@@ -122,7 +122,7 @@ final class ResourceLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function getResolver(): void
+    public function getResolver()
     {
         // Intentionally left blank.
     }
@@ -130,7 +130,7 @@ final class ResourceLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function setResolver(LoaderResolverInterface $resolver): void
+    public function setResolver(LoaderResolverInterface $resolver)
     {
         // Intentionally left blank.
     }
@@ -152,7 +152,7 @@ final class ResourceLoader implements LoaderInterface
         string $actionName,
         array $methods,
         bool $isApi = false
-    ): Route {
+    ) {
         $defaults = [
             '_controller' => $metadata->getServiceId('controller') . sprintf(':%sAction', $actionName),
         ];
@@ -220,7 +220,7 @@ final class ResourceLoader implements LoaderInterface
      *
      * @return string
      */
-    private function getRouteName(MetadataInterface $metadata, array $configuration, string $actionName): string
+    private function getRouteName(MetadataInterface $metadata, array $configuration, string $actionName)
     {
         $sectionPrefix = isset($configuration['section']) ? $configuration['section'] . '_' : '';
 

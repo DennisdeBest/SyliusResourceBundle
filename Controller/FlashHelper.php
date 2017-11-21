@@ -56,14 +56,14 @@ final class FlashHelper implements FlashHelperInterface
         RequestConfiguration $requestConfiguration,
         string $actionName,
         ?ResourceInterface $resource = null
-    ): void {
+    ) {
         $this->addFlashWithType($requestConfiguration, $actionName, 'success');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function addErrorFlash(RequestConfiguration $requestConfiguration, string $actionName): void
+    public function addErrorFlash(RequestConfiguration $requestConfiguration, string $actionName)
     {
         $this->addFlashWithType($requestConfiguration, $actionName, 'error');
     }
@@ -71,7 +71,7 @@ final class FlashHelper implements FlashHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function addFlashFromEvent(RequestConfiguration $requestConfiguration, ResourceControllerEvent $event): void
+    public function addFlashFromEvent(RequestConfiguration $requestConfiguration, ResourceControllerEvent $event)
     {
         $this->addFlash($event->getMessageType(), $event->getMessage(), $event->getMessageParameters());
     }
@@ -81,7 +81,7 @@ final class FlashHelper implements FlashHelperInterface
      * @param string $actionName
      * @param string $type
      */
-    private function addFlashWithType(RequestConfiguration $requestConfiguration, string $actionName, string $type): void
+    private function addFlashWithType(RequestConfiguration $requestConfiguration, string $actionName, string $type)
     {
         $metadata = $requestConfiguration->getMetadata();
         $metadataName = ucfirst($metadata->getHumanizedName());
@@ -116,7 +116,7 @@ final class FlashHelper implements FlashHelperInterface
      * @param string $message
      * @param array $parameters
      */
-    private function addFlash(string $type, string $message, array $parameters = []): void
+    private function addFlash(string $type, string $message, array $parameters = [])
     {
         if (!empty($parameters)) {
             $message = $this->prepareMessage($message, $parameters);
@@ -131,7 +131,7 @@ final class FlashHelper implements FlashHelperInterface
      *
      * @return array
      */
-    private function prepareMessage(string $message, array $parameters): array
+    private function prepareMessage(string $message, array $parameters)
     {
         return [
             'message' => $message,
@@ -144,7 +144,7 @@ final class FlashHelper implements FlashHelperInterface
      *
      * @return string
      */
-    private function getResourceMessage(string $actionName): string
+    private function getResourceMessage(string $actionName)
     {
         return sprintf('sylius.resource.%s', $actionName);
     }
@@ -156,7 +156,7 @@ final class FlashHelper implements FlashHelperInterface
      *
      * @return bool
      */
-    private function isTranslationDefined(string $message, string $locale, array $parameters): bool
+    private function isTranslationDefined(string $message, string $locale, array $parameters)
     {
         if ($this->translator instanceof TranslatorBagInterface) {
             $defaultCatalogue = $this->translator->getCatalogue($locale);
@@ -173,7 +173,7 @@ final class FlashHelper implements FlashHelperInterface
      *
      * @return array
      */
-    private function getParametersWithName(string $metadataName, string $actionName): array
+    private function getParametersWithName(string $metadataName, string $actionName)
     {
         if (stripos($actionName, 'bulk') !== false) {
             return ['%resources%' => ucfirst(Inflector::pluralize($metadataName))];

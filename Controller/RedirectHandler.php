@@ -38,7 +38,7 @@ final class RedirectHandler implements RedirectHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function redirectToResource(RequestConfiguration $configuration, ResourceInterface $resource): Response
+    public function redirectToResource(RequestConfiguration $configuration, ResourceInterface $resource)
     {
         try {
             return $this->redirectToRoute(
@@ -58,7 +58,7 @@ final class RedirectHandler implements RedirectHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function redirectToIndex(RequestConfiguration $configuration, ?ResourceInterface $resource = null): Response
+    public function redirectToIndex(RequestConfiguration $configuration, ?ResourceInterface $resource = null)
     {
         return $this->redirectToRoute(
             $configuration,
@@ -70,7 +70,7 @@ final class RedirectHandler implements RedirectHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function redirectToRoute(RequestConfiguration $configuration, string $route, array $parameters = []): Response
+    public function redirectToRoute(RequestConfiguration $configuration, string $route, array $parameters = [])
     {
         if ('referer' === $route) {
             return $this->redirectToReferer($configuration);
@@ -82,7 +82,7 @@ final class RedirectHandler implements RedirectHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function redirect(RequestConfiguration $configuration, string $url, int $status = 302): Response
+    public function redirect(RequestConfiguration $configuration, string $url, int $status = 302)
     {
         if ($configuration->isHeaderRedirection()) {
             return new Response('', 200, [
@@ -96,7 +96,7 @@ final class RedirectHandler implements RedirectHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function redirectToReferer(RequestConfiguration $configuration): Response
+    public function redirectToReferer(RequestConfiguration $configuration)
     {
         return $this->redirect($configuration, $configuration->getRedirectReferer());
     }

@@ -30,5 +30,5 @@ interface AuthorizationCheckerInterface
      *
      * @return bool
      */
-    public function isGranted(RequestConfiguration $configuration, string $permission): bool;
+    public function isGranted(RequestConfiguration $configuration, string $permission);
 }

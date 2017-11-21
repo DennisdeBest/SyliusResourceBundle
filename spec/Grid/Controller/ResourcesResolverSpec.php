@@ -35,11 +35,11 @@ final class ResourcesResolverSpec extends ObjectBehavior
         ResourcesResolverInterface $decoratedResolver,
         GridProviderInterface $gridProvider,
         ResourceGridViewFactoryInterface $gridViewFactory
-    ): void {
+    ) {
         $this->beConstructedWith($decoratedResolver, $gridProvider, $gridViewFactory);
     }
 
-    function it_implements_resources_resolver_interface(): void
+    function it_implements_resources_resolver_interface()
     {
         $this->shouldImplement(ResourcesResolverInterface::class);
     }
@@ -49,7 +49,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         RepositoryInterface $repository,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->hasGrid()->willReturn(false);
 
         $decoratedResolver->getResources($requestConfiguration, $repository)->willReturn([$resource]);
@@ -67,7 +67,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         MetadataInterface $metadata,
         Request $request,
         ParameterBag $queryParameters
-    ): void {
+    ) {
         $requestConfiguration->hasGrid()->willReturn(true);
         $requestConfiguration->getGrid()->willReturn('sylius_admin_tax_category');
         $requestConfiguration->getMetadata()->willReturn($metadata);
@@ -94,7 +94,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         MetadataInterface $metadata,
         Request $request,
         ParameterBag $queryParameters
-    ): void {
+    ) {
         $requestConfiguration->hasGrid()->willReturn(true);
         $requestConfiguration->getGrid()->willReturn('sylius_admin_tax_category');
         $requestConfiguration->getMetadata()->willReturn($metadata);

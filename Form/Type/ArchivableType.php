@@ -25,7 +25,7 @@ final class ArchivableType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('archivedAt', DateTimeType::class)
@@ -48,7 +48,7 @@ final class ArchivableType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string
+    public function getBlockPrefix()
     {
         return 'sylius_archivable';
     }

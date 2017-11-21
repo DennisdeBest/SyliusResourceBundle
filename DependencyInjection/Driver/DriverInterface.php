@@ -22,12 +22,12 @@ interface DriverInterface
      * @param ContainerBuilder $container
      * @param MetadataInterface $metadata
      */
-    public function load(ContainerBuilder $container, MetadataInterface $metadata): void;
+    public function load(ContainerBuilder $container, MetadataInterface $metadata);
 
     /**
      * Returns unique name of the driver.
      *
      * @return string
      */
-    public function getType(): string;
+    public function getType();
 }

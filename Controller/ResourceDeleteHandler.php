@@ -21,7 +21,7 @@ final class ResourceDeleteHandler implements ResourceDeleteHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function handle(ResourceInterface $resource, RepositoryInterface $repository): void
+    public function handle(ResourceInterface $resource, RepositoryInterface $repository)
     {
         $repository->remove($resource);
     }

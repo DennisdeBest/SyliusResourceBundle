@@ -44,5 +44,5 @@ interface RouteFactoryInterface
         array $schemes = [],
         array $methods = [],
         string $condition = ''
-    ): Route;
+    );
 }

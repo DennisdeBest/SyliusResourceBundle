@@ -46,7 +46,7 @@ final class ResourceToIdentifierType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addModelTransformer(
             new ResourceToIdentifierTransformer($this->repository, $options['identifier'])
@@ -56,7 +56,7 @@ final class ResourceToIdentifierType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
             ->setDefaults([
@@ -69,7 +69,7 @@ final class ResourceToIdentifierType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent(): string
+    public function getParent()
     {
         return EntityType::class;
     }
@@ -77,7 +77,7 @@ final class ResourceToIdentifierType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string
+    public function getBlockPrefix()
     {
         return sprintf('%s_%s_to_identifier', $this->metadata->getApplicationName(), $this->metadata->getName());
     }

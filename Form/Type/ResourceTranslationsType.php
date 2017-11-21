@@ -45,7 +45,7 @@ final class ResourceTranslationsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
             /** @var TranslationInterface[] $translations */
@@ -70,14 +70,14 @@ final class ResourceTranslationsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'entries' => $this->definedLocalesCodes,
-            'entry_name' => function (string $localeCode): string {
+            'entry_name' => function (string $localeCode) {
                 return $localeCode;
             },
-            'entry_options' => function (string $localeCode): array {
+            'entry_options' => function (string $localeCode) {
                 return [
                     'required' => $localeCode === $this->defaultLocaleCode,
                 ];
@@ -88,7 +88,7 @@ final class ResourceTranslationsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent(): string
+    public function getParent()
     {
         return FixedCollectionType::class;
     }
@@ -96,7 +96,7 @@ final class ResourceTranslationsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string
+    public function getBlockPrefix()
     {
         return 'sylius_translations';
     }

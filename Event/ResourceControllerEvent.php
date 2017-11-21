@@ -67,7 +67,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return bool
      */
-    public function isStopped(): bool
+    public function isStopped()
     {
         return $this->isPropagationStopped();
     }
@@ -75,7 +75,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return string
      */
-    public function getMessageType(): string
+    public function getMessageType()
     {
         return $this->messageType;
     }
@@ -83,7 +83,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @param string $messageType Should be one of ResourceEvent's TYPE constants
      */
-    public function setMessageType($messageType): void
+    public function setMessageType($messageType)
     {
         $this->messageType = $messageType;
     }
@@ -91,7 +91,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->message;
     }
@@ -99,7 +99,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @param string $message
      */
-    public function setMessage(string $message): void
+    public function setMessage(string $message)
     {
         $this->message = $message;
     }
@@ -107,7 +107,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return array
      */
-    public function getMessageParameters(): array
+    public function getMessageParameters()
     {
         return $this->messageParameters;
     }
@@ -115,7 +115,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @param array $messageParameters
      */
-    public function setMessageParameters(array $messageParameters): void
+    public function setMessageParameters(array $messageParameters)
     {
         $this->messageParameters = $messageParameters;
     }
@@ -123,7 +123,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return int
      */
-    public function getErrorCode(): int
+    public function getErrorCode()
     {
         return $this->errorCode;
     }
@@ -131,7 +131,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @param int $errorCode
      */
-    public function setErrorCode(int $errorCode): void
+    public function setErrorCode(int $errorCode)
     {
         $this->errorCode = $errorCode;
     }
@@ -139,7 +139,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @param Response $response
      */
-    public function setResponse(Response $response): void
+    public function setResponse(Response $response)
     {
         $this->response = $response;
     }
@@ -147,7 +147,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return bool
      */
-    public function hasResponse(): bool
+    public function hasResponse()
     {
         return null !== $this->response;
     }
@@ -155,7 +155,7 @@ class ResourceControllerEvent extends GenericEvent
     /**
      * @return Response|null
      */
-    public function getResponse(): ?Response
+    public function getResponse()
     {
         return $this->response;
     }

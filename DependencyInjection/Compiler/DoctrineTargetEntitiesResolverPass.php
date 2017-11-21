@@ -26,7 +26,7 @@ final class DoctrineTargetEntitiesResolverPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container): void
+    public function process(ContainerBuilder $container)
     {
         try {
             $resources = $container->getParameter('sylius.resources');
@@ -54,7 +54,7 @@ final class DoctrineTargetEntitiesResolverPass implements CompilerPassInterface
      *
      * @return array
      */
-    private function getInterfacesMapping(array $resources): array
+    private function getInterfacesMapping(array $resources)
     {
         $interfaces = [];
         foreach ($resources as $alias => $configuration) {
@@ -80,7 +80,7 @@ final class DoctrineTargetEntitiesResolverPass implements CompilerPassInterface
      *
      * @throws \InvalidArgumentException
      */
-    private function getInterface(ContainerBuilder $container, string $key): string
+    private function getInterface(ContainerBuilder $container, string $key)
     {
         if ($container->hasParameter($key)) {
             return $container->getParameter($key);
@@ -103,7 +103,7 @@ final class DoctrineTargetEntitiesResolverPass implements CompilerPassInterface
      *
      * @throws \InvalidArgumentException
      */
-    private function getClass(ContainerBuilder $container, $key): string
+    private function getClass(ContainerBuilder $container, $key)
     {
         if ($container->hasParameter($key)) {
             return $container->getParameter($key);

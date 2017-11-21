@@ -22,12 +22,12 @@ final class FixedCollectionTypeTest extends TypeTestCase
     /**
      * @test
      */
-    public function it_builds_fixed_collection(): void
+    public function it_builds_fixed_collection()
     {
         $form = $this->factory->create(FixedCollectionType::class, null, [
             'entries' => ['first_name', 'last_name'],
             'entry_type' => TextType::class,
-            'entry_name' => function (string $entry): string {
+            'entry_name' => function (string $entry) {
                 return strtoupper($entry);
             },
         ]);
@@ -40,18 +40,18 @@ final class FixedCollectionTypeTest extends TypeTestCase
     /**
      * @test
      */
-    public function it_builds_fixed_collection_using_callable_to_resolve_entry_type(): void
+    public function it_builds_fixed_collection_using_callable_to_resolve_entry_type()
     {
         $form = $this->factory->create(FixedCollectionType::class, null, [
             'entries' => ['first_name', 'last_name'],
-            'entry_type' => function (string $entry): string {
+            'entry_type' => function (string $entry) {
                 if (!in_array($entry, ['first_name', 'last_name'], true)) {
                     throw new \Exception();
                 }
 
                 return TextType::class;
             },
-            'entry_name' => function (string $entry): string {
+            'entry_name' => function (string $entry) {
                 return strtoupper($entry);
             },
         ]);
@@ -64,12 +64,12 @@ final class FixedCollectionTypeTest extends TypeTestCase
     /**
      * @test
      */
-    public function it_builds_fixed_collection_using_array_to_resolve_entry_options(): void
+    public function it_builds_fixed_collection_using_array_to_resolve_entry_options()
     {
         $form = $this->factory->create(FixedCollectionType::class, null, [
             'entries' => ['first_name', 'last_name'],
             'entry_type' => TextType::class,
-            'entry_name' => function (string $entry): string {
+            'entry_name' => function (string $entry) {
                 return strtoupper($entry);
             },
             'entry_options' => [
@@ -85,15 +85,15 @@ final class FixedCollectionTypeTest extends TypeTestCase
     /**
      * @test
      */
-    public function it_builds_fixed_collection_using_callable_to_resolve_entry_options(): void
+    public function it_builds_fixed_collection_using_callable_to_resolve_entry_options()
     {
         $form = $this->factory->create(FixedCollectionType::class, null, [
             'entries' => ['first_name', 'last_name'],
             'entry_type' => TextType::class,
-            'entry_name' => function (string $entry): string {
+            'entry_name' => function (string $entry) {
                 return strtoupper($entry);
             },
-            'entry_options' => function (string $entry): array {
+            'entry_options' => function (string $entry) {
                 $defaults = [
                     'first_name' => 'Elon',
                     'last_name' => 'Tusk',

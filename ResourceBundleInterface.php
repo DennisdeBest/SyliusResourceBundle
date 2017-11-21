@@ -28,5 +28,5 @@ interface ResourceBundleInterface
      *
      * @return array
      */
-    public function getSupportedDrivers(): array;
+    public function getSupportedDrivers();
 }

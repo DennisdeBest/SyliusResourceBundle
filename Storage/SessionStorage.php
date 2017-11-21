@@ -34,7 +34,7 @@ final class SessionStorage implements StorageInterface
     /**
      * {@inheritdoc}
      */
-    public function has(string $name): bool
+    public function has(string $name)
     {
         return $this->session->has($name);
     }
@@ -50,7 +50,7 @@ final class SessionStorage implements StorageInterface
     /**
      * {@inheritdoc}
      */
-    public function set(string $name, $value): void
+    public function set(string $name, $value)
     {
         $this->session->set($name, $value);
     }
@@ -58,7 +58,7 @@ final class SessionStorage implements StorageInterface
     /**
      * {@inheritdoc}
      */
-    public function remove(string $name): void
+    public function remove(string $name)
     {
         $this->session->remove($name);
     }
@@ -66,7 +66,7 @@ final class SessionStorage implements StorageInterface
     /**
      * {@inheritdoc}
      */
-    public function all(): array
+    public function all()
     {
         return $this->session->all();
     }

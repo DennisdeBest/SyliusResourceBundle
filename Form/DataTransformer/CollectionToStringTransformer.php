@@ -36,7 +36,7 @@ final class CollectionToStringTransformer implements DataTransformerInterface
     /**
      * {@inheritdoc}
      */
-    public function transform($values): string
+    public function transform($values)
     {
         if (!($values instanceof Collection)) {
             throw new TransformationFailedException(
@@ -58,7 +58,7 @@ final class CollectionToStringTransformer implements DataTransformerInterface
     /**
      * {@inheritdoc}
      */
-    public function reverseTransform($value): Collection
+    public function reverseTransform($value)
     {
         if (!is_string($value)) {
             throw new TransformationFailedException(

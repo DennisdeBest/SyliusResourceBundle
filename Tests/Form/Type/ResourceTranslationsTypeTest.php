@@ -25,7 +25,7 @@ final class ResourceTranslationsTypeTest extends TypeTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getExtensions(): array
+    protected function getExtensions()
     {
         /** @var TranslationLocaleProviderInterface|ObjectProphecy $translationLocaleProvider */
         $translationLocaleProvider = $this->prophesize(TranslationLocaleProviderInterface::class);
@@ -42,7 +42,7 @@ final class ResourceTranslationsTypeTest extends TypeTestCase
     /**
      * @test
      */
-    public function it_respects_entry_options(): void
+    public function it_respects_entry_options()
     {
         $form = $this->factory->create(
             ResourceTranslationsType::class,

@@ -35,7 +35,7 @@ final class ViewHandler implements ViewHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function handle(RequestConfiguration $requestConfiguration, View $view): Response
+    public function handle(RequestConfiguration $requestConfiguration, View $view)
     {
         if (!$requestConfiguration->isHtmlRequest()) {
             $this->restViewHandler->setExclusionStrategyGroups($requestConfiguration->getSerializationGroups());

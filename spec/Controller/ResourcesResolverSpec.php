@@ -22,7 +22,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 final class ResourcesResolverSpec extends ObjectBehavior
 {
-    function it_implements_resources_resolver_interface(): void
+    function it_implements_resources_resolver_interface()
     {
         $this->shouldImplement(ResourcesResolverInterface::class);
     }
@@ -32,7 +32,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         RepositoryInterface $repository,
         ResourceInterface $firstResource,
         ResourceInterface $secondResource
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getRepositoryMethod(null)->willReturn(null);
 
@@ -52,7 +52,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         ResourceInterface $firstResource,
         ResourceInterface $secondResource,
         ResourceInterface $thirdResource
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getRepositoryMethod(null)->willReturn(null);
 
@@ -74,7 +74,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         RepositoryInterface $repository,
         ResourceInterface $firstResource
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getRepositoryMethod()->willReturn('findAll');
         $requestConfiguration->getRepositoryArguments()->willReturn(['foo']);
@@ -92,7 +92,7 @@ final class ResourcesResolverSpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         RepositoryInterface $repository,
         Pagerfanta $paginator
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getRepositoryMethod()->willReturn(null);
 

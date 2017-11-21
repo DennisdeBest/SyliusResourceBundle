@@ -54,7 +54,7 @@ final class RequestConfigurationFactory implements RequestConfigurationFactoryIn
     /**
      * {@inheritdoc}
      */
-    public function create(MetadataInterface $metadata, Request $request): RequestConfiguration
+    public function create(MetadataInterface $metadata, Request $request)
     {
         $parameters = array_merge($this->defaultParameters, $this->parseApiParameters($request));
         $parameters = $this->parametersParser->parseRequestValues($parameters, $request);
@@ -69,7 +69,7 @@ final class RequestConfigurationFactory implements RequestConfigurationFactoryIn
      *
      * @throws \InvalidArgumentException
      */
-    private function parseApiParameters(Request $request): array
+    private function parseApiParameters(Request $request)
     {
         $parameters = [];
 

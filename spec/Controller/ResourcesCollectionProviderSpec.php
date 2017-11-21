@@ -31,12 +31,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class ResourcesCollectionProviderSpec extends ObjectBehavior
 {
-    function let(ResourcesResolverInterface $resourcesResolver, PagerfantaFactory $pagerfantaRepresentationFactory): void
+    function let(ResourcesResolverInterface $resourcesResolver, PagerfantaFactory $pagerfantaRepresentationFactory)
     {
         $this->beConstructedWith($resourcesResolver, $pagerfantaRepresentationFactory);
     }
 
-    function it_implements_resources_collection_provider_interface(): void
+    function it_implements_resources_collection_provider_interface()
     {
         $this->shouldImplement(ResourcesCollectionProviderInterface::class);
     }
@@ -47,7 +47,7 @@ final class ResourcesCollectionProviderSpec extends ObjectBehavior
         RepositoryInterface $repository,
         ResourceInterface $firstResource,
         ResourceInterface $secondResource
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
 
         $resourcesResolver->getResources($requestConfiguration, $repository)->willReturn([$firstResource, $secondResource]);
@@ -62,7 +62,7 @@ final class ResourcesCollectionProviderSpec extends ObjectBehavior
         Pagerfanta $paginator,
         Request $request,
         ParameterBag $queryParameters
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getPaginationMaxPerPage()->willReturn(5);
 
@@ -90,7 +90,7 @@ final class ResourcesCollectionProviderSpec extends ObjectBehavior
         Pagerfanta $paginator,
         Request $request,
         ParameterBag $queryParameters
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getPaginationMaxPerPage()->willReturn(1000);
 
@@ -124,7 +124,7 @@ final class ResourcesCollectionProviderSpec extends ObjectBehavior
         ParameterBag $requestAttributes,
         PagerfantaFactory $pagerfantaRepresentationFactory,
         PaginatedRepresentation $paginatedRepresentation
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(false);
         $requestConfiguration->getPaginationMaxPerPage()->willReturn(8);
 
@@ -159,7 +159,7 @@ final class ResourcesCollectionProviderSpec extends ObjectBehavior
         Pagerfanta $paginator,
         Request $request,
         ParameterBag $queryParameters
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $requestConfiguration->getPaginationMaxPerPage()->willReturn(5);
 

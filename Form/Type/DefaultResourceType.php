@@ -43,7 +43,7 @@ final class DefaultResourceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $metadata = $this->metadataRegistry->getByClass($options['data_class']);
         $formBuilder = $this->formBuilderRegistry->get($metadata->getDriver());
@@ -54,7 +54,7 @@ final class DefaultResourceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string
+    public function getBlockPrefix()
     {
         return 'sylius_resource';
     }

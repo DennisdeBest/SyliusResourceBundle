@@ -17,17 +17,17 @@ use PhpSpec\ObjectBehavior;
 
 final class InvalidDriverExceptionSpec extends ObjectBehavior
 {
-    function let(): void
+    function let()
     {
         $this->beConstructedWith('driver', 'className');
     }
 
-    function it_extends_exception(): void
+    function it_extends_exception()
     {
         $this->shouldHaveType(\Exception::class);
     }
 
-    function it_has_a_message(): void
+    function it_has_a_message()
     {
         $this->getMessage()->shouldReturn('Driver "driver" is not supported by className.');
     }

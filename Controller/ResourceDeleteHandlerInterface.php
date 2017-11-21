@@ -22,5 +22,5 @@ interface ResourceDeleteHandlerInterface
      * @param ResourceInterface $resource
      * @param RepositoryInterface $repository
      */
-    public function handle(ResourceInterface $resource, RepositoryInterface $repository): void;
+    public function handle(ResourceInterface $resource, RepositoryInterface $repository);
 }

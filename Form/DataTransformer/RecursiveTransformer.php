@@ -36,7 +36,7 @@ final class RecursiveTransformer implements DataTransformerInterface
     /**
      * {@inheritdoc}
      */
-    public function transform($values): Collection
+    public function transform($values)
     {
         if (null === $values) {
             return new ArrayCollection();
@@ -52,7 +52,7 @@ final class RecursiveTransformer implements DataTransformerInterface
     /**
      * {@inheritdoc}
      */
-    public function reverseTransform($values): Collection
+    public function reverseTransform($values)
     {
         if (null === $values) {
             return new ArrayCollection();
@@ -71,7 +71,7 @@ final class RecursiveTransformer implements DataTransformerInterface
      *
      * @throws TransformationFailedException
      */
-    private function assertTransformationValueType($value, string $expectedType): void
+    private function assertTransformationValueType($value, string $expectedType)
     {
         if (!($value instanceof $expectedType)) {
             throw new TransformationFailedException(

@@ -24,5 +24,5 @@ interface OptionsParserInterface
      *
      * @return array
      */
-    public function parseOptions(array $parameters, Request $request, $data = null): array;
+    public function parseOptions(array $parameters, Request $request, $data = null);
 }

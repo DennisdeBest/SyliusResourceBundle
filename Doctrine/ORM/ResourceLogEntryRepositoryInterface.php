@@ -22,5 +22,5 @@ interface ResourceLogEntryRepositoryInterface
      *
      * @return QueryBuilder
      */
-    public function createByObjectIdQueryBuilder(string $objectId): QueryBuilder;
+    public function createByObjectIdQueryBuilder(string $objectId);
 }

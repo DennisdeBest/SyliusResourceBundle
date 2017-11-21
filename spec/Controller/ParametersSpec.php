@@ -17,12 +17,12 @@ use PhpSpec\ObjectBehavior;
 
 final class ParametersSpec extends ObjectBehavior
 {
-    function it_has_mutable_parameters(): void
+    function it_has_mutable_parameters()
     {
         $this->replace([]);
     }
 
-    function it_has_parameters(): void
+    function it_has_parameters()
     {
         $this->replace([
             'criteria' => 'criteria',
@@ -35,7 +35,7 @@ final class ParametersSpec extends ObjectBehavior
         ]);
     }
 
-    function it_gets_a_single_parameter_and_supports_default_value(): void
+    function it_gets_a_single_parameter_and_supports_default_value()
     {
         $this->replace([
             'criteria' => 'criteria',

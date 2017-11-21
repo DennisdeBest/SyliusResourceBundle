@@ -26,17 +26,17 @@ use Symfony\Component\Form\FormInterface;
 
 final class AddCodeFormSubscriberSpec extends ObjectBehavior
 {
-    function it_implements_event_subscriber_interface(): void
+    function it_implements_event_subscriber_interface()
     {
         $this->shouldImplement(EventSubscriberInterface::class);
     }
 
-    function it_subscribes_to_event(): void
+    function it_subscribes_to_event()
     {
         $this::getSubscribedEvents()->shouldReturn([FormEvents::PRE_SET_DATA => 'preSetData']);
     }
 
-    function it_sets_code_as_enabled_when_resource_is_new(FormEvent $event, FormInterface $form, CodeAwareInterface $resource): void
+    function it_sets_code_as_enabled_when_resource_is_new(FormEvent $event, FormInterface $form, CodeAwareInterface $resource)
     {
         $event->getData()->willReturn($resource);
         $event->getForm()->willReturn($form);
@@ -55,7 +55,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         FormEvent $event,
         FormInterface $form,
         CodeAwareInterface $resource
-    ): void {
+    ) {
         $event->getData()->willReturn($resource);
         $event->getForm()->willReturn($form);
 
@@ -69,7 +69,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         $this->preSetData($event);
     }
 
-    function it_throws_exception_when_resource_does_not_implement_code_aware_interface(FormEvent $event, $object): void
+    function it_throws_exception_when_resource_does_not_implement_code_aware_interface(FormEvent $event, $object)
     {
         $event->getData()->willReturn($object);
         $this->shouldThrow(UnexpectedTypeException::class)->during('preSetData', [$event]);
@@ -78,7 +78,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
     function it_sets_code_as_enabled_when_there_is_no_resource(
         FormEvent $event,
         FormInterface $form
-    ): void {
+    ) {
         $event->getData()->willReturn(null);
         $event->getForm()->willReturn($form);
 
@@ -90,7 +90,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         $this->preSetData($event);
     }
 
-    function it_adds_code_with_specified_type(FormEvent $event, FormInterface $form, CodeAwareInterface $resource): void
+    function it_adds_code_with_specified_type(FormEvent $event, FormInterface $form, CodeAwareInterface $resource)
     {
         $this->beConstructedWith(FormType::class);
 
@@ -107,7 +107,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         $this->preSetData($event);
     }
 
-    function it_adds_code_with_type_text_by_default(FormEvent $event, FormInterface $form, CodeAwareInterface $resource): void
+    function it_adds_code_with_type_text_by_default(FormEvent $event, FormInterface $form, CodeAwareInterface $resource)
     {
         $event->getData()->willReturn($resource);
         $event->getForm()->willReturn($form);
@@ -126,7 +126,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         FormEvent $event,
         FormInterface $form,
         CodeAwareInterface $resource
-    ): void {
+    ) {
         $event->getData()->willReturn($resource);
         $event->getForm()->willReturn($form);
 
@@ -144,7 +144,7 @@ final class AddCodeFormSubscriberSpec extends ObjectBehavior
         FormEvent $event,
         FormInterface $form,
         CodeAwareInterface $resource
-    ): void {
+    ) {
         $this->beConstructedWith(FormType::class, ['label' => 'sylius.ui.name']);
 
         $event->getData()->willReturn($resource);

@@ -34,7 +34,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
+    public function build(ContainerBuilder $container)
     {
         if (null !== $this->getModelNamespace()) {
             foreach ($this->getSupportedDrivers() as $driver) {
@@ -77,7 +77,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
      *
      * @return string
      */
-    protected function getBundlePrefix(): string
+    protected function getBundlePrefix()
     {
         return Container::underscore(substr(strrchr(get_class($this), '\\'), 1, -6));
     }
@@ -87,7 +87,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
      *
      * @return string
      */
-    protected function getDoctrineMappingDirectory(): string
+    protected function getDoctrineMappingDirectory()
     {
         return 'model';
     }
@@ -97,7 +97,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
      *
      * @return string
      */
-    protected function getModelNamespace(): ?string
+    protected function getModelNamespace()
     {
         return null;
     }
@@ -111,7 +111,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
      *
      * @throws UnknownDriverException
      */
-    protected function getMappingCompilerPassInfo(string $driverType): array
+    protected function getMappingCompilerPassInfo(string $driverType)
     {
         switch ($driverType) {
             case SyliusResourceBundle::DRIVER_DOCTRINE_MONGODB_ODM:
@@ -140,7 +140,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
      *
      * @return string
      */
-    protected function getConfigFilesPath(): string
+    protected function getConfigFilesPath()
     {
         return sprintf(
             '%s/Resources/config/doctrine/%s',
@@ -152,7 +152,7 @@ abstract class AbstractResourceBundle extends Bundle implements ResourceBundleIn
     /**
      * @return string
      */
-    protected function getObjectManagerParameter(): string
+    protected function getObjectManagerParameter()
     {
         return sprintf('%s.object_manager', $this->getBundlePrefix());
     }

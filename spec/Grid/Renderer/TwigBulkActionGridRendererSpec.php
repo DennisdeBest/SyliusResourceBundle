@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class TwigBulkActionGridRendererSpec extends ObjectBehavior
 {
-    function let(\Twig_Environment $twig, OptionsParserInterface $optionsParser): void
+    function let(\Twig_Environment $twig, OptionsParserInterface $optionsParser)
     {
         $this->beConstructedWith(
             $twig,
@@ -32,7 +32,7 @@ final class TwigBulkActionGridRendererSpec extends ObjectBehavior
         );
     }
 
-    function it_is_a_bulk_action_grid_renderer(): void
+    function it_is_a_bulk_action_grid_renderer()
     {
         $this->shouldImplement(BulkActionGridRendererInterface::class);
     }
@@ -44,7 +44,7 @@ final class TwigBulkActionGridRendererSpec extends ObjectBehavior
         Action $bulkAction,
         RequestConfiguration $requestConfiguration,
         Request $request
-    ): void {
+    ) {
         $bulkAction->getType()->willReturn('delete');
         $bulkAction->getOptions()->willReturn([]);
 
@@ -69,7 +69,7 @@ final class TwigBulkActionGridRendererSpec extends ObjectBehavior
     function it_throws_an_exception_if_template_is_not_configured_for_given_bulk_action_type(
         ResourceGridView $gridView,
         Action $bulkAction
-    ): void {
+    ) {
         $bulkAction->getType()->willReturn('foo');
 
         $this

@@ -26,7 +26,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
     /**
      * {@inheritdoc}
      */
-    public function add(ResourceInterface $resource): void
+    public function add(ResourceInterface $resource)
     {
         $this->_em->persist($resource);
         $this->_em->flush();
@@ -35,7 +35,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
     /**
      * {@inheritdoc}
      */
-    public function remove(ResourceInterface $resource): void
+    public function remove(ResourceInterface $resource)
     {
         if (null !== $this->find($resource->getId())) {
             $this->_em->remove($resource);
@@ -46,7 +46,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
     /**
      * {@inheritdoc}
      */
-    public function createPaginator(array $criteria = [], array $sorting = []): iterable
+    public function createPaginator(array $criteria = [], array $sorting = [])
     {
         $queryBuilder = $this->createQueryBuilder('o');
 
@@ -61,7 +61,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      *
      * @return Pagerfanta
      */
-    protected function getPaginator(QueryBuilder $queryBuilder): Pagerfanta
+    protected function getPaginator(QueryBuilder $queryBuilder)
     {
         // Use output walkers option in DoctrineORMAdapter should be false as it affects performance greatly (see #3775)
         return new Pagerfanta(new DoctrineORMAdapter($queryBuilder, false, false));
@@ -72,7 +72,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      *
      * @return Pagerfanta
      */
-    protected function getArrayPaginator($objects): Pagerfanta
+    protected function getArrayPaginator($objects)
     {
         return new Pagerfanta(new ArrayAdapter($objects));
     }
@@ -81,7 +81,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      * @param QueryBuilder $queryBuilder
      * @param array $criteria
      */
-    protected function applyCriteria(QueryBuilder $queryBuilder, array $criteria = []): void
+    protected function applyCriteria(QueryBuilder $queryBuilder, array $criteria = [])
     {
         foreach ($criteria as $property => $value) {
             if (!in_array($property, array_merge($this->_class->getAssociationNames(), $this->_class->getFieldNames()), true)) {
@@ -108,7 +108,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      * @param QueryBuilder $queryBuilder
      * @param array $sorting
      */
-    protected function applySorting(QueryBuilder $queryBuilder, array $sorting = []): void
+    protected function applySorting(QueryBuilder $queryBuilder, array $sorting = [])
     {
         foreach ($sorting as $property => $order) {
             if (!in_array($property, array_merge($this->_class->getAssociationNames(), $this->_class->getFieldNames()), true)) {
@@ -126,7 +126,7 @@ class EntityRepository extends BaseEntityRepository implements RepositoryInterfa
      *
      * @return string
      */
-    protected function getPropertyName(string $name): string
+    protected function getPropertyName(string $name)
     {
         if (false === strpos($name, '.')) {
             return 'o' . '.' . $name;

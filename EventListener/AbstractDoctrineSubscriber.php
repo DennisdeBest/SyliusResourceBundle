@@ -45,7 +45,7 @@ abstract class AbstractDoctrineSubscriber implements EventSubscriber
      *
      * @return bool
      */
-    protected function isResource(ClassMetadata $metadata): bool
+    protected function isResource(ClassMetadata $metadata)
     {
         if (!$reflClass = $metadata->getReflectionClass()) {
             return false;
@@ -54,7 +54,7 @@ abstract class AbstractDoctrineSubscriber implements EventSubscriber
         return $reflClass->implementsInterface(ResourceInterface::class);
     }
 
-    protected function getReflectionService(): ReflectionService
+    protected function getReflectionService()
     {
         if ($this->reflectionService === null) {
             $this->reflectionService = new RuntimeReflectionService();

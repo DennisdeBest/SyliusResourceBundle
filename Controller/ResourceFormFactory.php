@@ -35,7 +35,7 @@ final class ResourceFormFactory implements ResourceFormFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create(RequestConfiguration $requestConfiguration, ResourceInterface $resource): FormInterface
+    public function create(RequestConfiguration $requestConfiguration, ResourceInterface $resource)
     {
         $formType = $requestConfiguration->getFormType();
         $formOptions = $requestConfiguration->getFormOptions();

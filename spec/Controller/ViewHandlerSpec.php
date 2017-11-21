@@ -23,12 +23,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class ViewHandlerSpec extends ObjectBehavior
 {
-    function let(RestViewHandler $restViewHandler): void
+    function let(RestViewHandler $restViewHandler)
     {
         $this->beConstructedWith($restViewHandler);
     }
 
-    function it_implements_view_handler_interface(): void
+    function it_implements_view_handler_interface()
     {
         $this->shouldImplement(ViewHandlerInterface::class);
     }
@@ -37,7 +37,7 @@ final class ViewHandlerSpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         RestViewHandler $restViewHandler,
         Response $response
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(true);
         $view = View::create();
 
@@ -50,7 +50,7 @@ final class ViewHandlerSpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         RestViewHandler $restViewHandler,
         Response $response
-    ): void {
+    ) {
         $requestConfiguration->isHtmlRequest()->willReturn(false);
         $view = View::create();
         $view->setContext(new Context());

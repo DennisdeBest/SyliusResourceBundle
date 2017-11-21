@@ -57,7 +57,7 @@ abstract class PrioritizedCompositeServicePass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container): void
+    public function process(ContainerBuilder $container)
     {
         if (!$container->hasDefinition($this->compositeId)) {
             return;
@@ -70,7 +70,7 @@ abstract class PrioritizedCompositeServicePass implements CompilerPassInterface
     /**
      * @param ContainerBuilder $container
      */
-    private function injectTaggedServicesIntoComposite(ContainerBuilder $container): void
+    private function injectTaggedServicesIntoComposite(ContainerBuilder $container)
     {
         $channelContextDefinition = $container->findDefinition($this->compositeId);
 
@@ -83,7 +83,7 @@ abstract class PrioritizedCompositeServicePass implements CompilerPassInterface
     /**
      * @param ContainerBuilder $container
      */
-    private function addAliasForCompositeIfServiceDoesNotExist(ContainerBuilder $container): void
+    private function addAliasForCompositeIfServiceDoesNotExist(ContainerBuilder $container)
     {
         if ($container->has($this->serviceId)) {
             return;
@@ -97,7 +97,7 @@ abstract class PrioritizedCompositeServicePass implements CompilerPassInterface
      * @param string $id
      * @param array $tags
      */
-    private function addMethodCalls(Definition $channelContextDefinition, string $id, array $tags): void
+    private function addMethodCalls(Definition $channelContextDefinition, string $id, array $tags)
     {
         foreach ($tags as $attributes) {
             $this->addMethodCall($channelContextDefinition, $id, $attributes);
@@ -109,7 +109,7 @@ abstract class PrioritizedCompositeServicePass implements CompilerPassInterface
      * @param string $id
      * @param array $attributes
      */
-    private function addMethodCall(Definition $channelContextDefinition, string $id, array $attributes): void
+    private function addMethodCall(Definition $channelContextDefinition, string $id, array $attributes)
     {
         $arguments = [new Reference($id)];
 

@@ -31,7 +31,7 @@ final class DebugResourceCommandTest extends \PHPUnit_Framework_TestCase
      */
     private $tester;
 
-    public function setUp(): void
+    public function setUp()
     {
         $this->registry = $this->prophesize(RegistryInterface::class);
 
@@ -42,7 +42,7 @@ final class DebugResourceCommandTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function it_lists_all_resources_if_no_argument_is_given(): void
+    public function it_lists_all_resources_if_no_argument_is_given()
     {
         $this->registry->getAll()->willReturn([$this->createMetadata('one'), $this->createMetadata('two')]);
         $this->tester->execute([]);
@@ -63,7 +63,7 @@ EOT
     /**
      * @test
      */
-    public function it_displays_the_metadata_for_given_resource_alias(): void
+    public function it_displays_the_metadata_for_given_resource_alias()
     {
         $this->registry->get('metadata.one')->willReturn($this->createMetadata('one'));
         $this->tester->execute([
@@ -91,7 +91,7 @@ EOT
      *
      * @return MetadataInterface
      */
-    private function createMetadata(string $suffix): MetadataInterface
+    private function createMetadata(string $suffix)
     {
         $metadata = Metadata::fromAliasAndConfiguration(sprintf('sylius.%s', $suffix), [
             'driver' => 'doctrine/foobar',

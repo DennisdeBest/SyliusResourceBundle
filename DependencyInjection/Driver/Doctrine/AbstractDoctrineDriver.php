@@ -27,7 +27,7 @@ abstract class AbstractDoctrineDriver extends AbstractDriver
      *
      * @return Definition
      */
-    protected function getClassMetadataDefinition(MetadataInterface $metadata): Definition
+    protected function getClassMetadataDefinition(MetadataInterface $metadata)
     {
         $definition = new Definition($this->getClassMetadataClassname());
         $definition
@@ -42,7 +42,7 @@ abstract class AbstractDoctrineDriver extends AbstractDriver
     /**
      * {@inheritdoc}
      */
-    protected function addManager(ContainerBuilder $container, MetadataInterface $metadata): void
+    protected function addManager(ContainerBuilder $container, MetadataInterface $metadata)
     {
         $container->setAlias(
             $metadata->getServiceId('manager'),
@@ -58,7 +58,7 @@ abstract class AbstractDoctrineDriver extends AbstractDriver
      *
      * @return string|null
      */
-    protected function getObjectManagerName(MetadataInterface $metadata): ?string
+    protected function getObjectManagerName(MetadataInterface $metadata)
     {
         $objectManagerName = null;
 
@@ -74,10 +74,10 @@ abstract class AbstractDoctrineDriver extends AbstractDriver
      *
      * @return string
      */
-    abstract protected function getManagerServiceId(MetadataInterface $metadata): string;
+    abstract protected function getManagerServiceId(MetadataInterface $metadata);
 
     /**
      * @return string
      */
-    abstract protected function getClassMetadataClassname(): string;
+    abstract protected function getClassMetadataClassname();
 }

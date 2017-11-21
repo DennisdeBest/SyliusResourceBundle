@@ -23,7 +23,7 @@ use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
  */
 final class NameFilterListenerSpec extends ObjectBehavior
 {
-    function let(DocumentManagerInterface $documentManager): void
+    function let(DocumentManagerInterface $documentManager)
     {
         $this->beConstructedWith($documentManager);
     }
@@ -32,7 +32,7 @@ final class NameFilterListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         DocumentManagerInterface $documentManager,
         ClassMetadata $metadata
-    ): void {
+    ) {
         $document = new \stdClass();
         $event->getSubject()->willReturn($document);
         $documentManager->getClassMetadata('stdClass')->willReturn($metadata);
@@ -45,7 +45,7 @@ final class NameFilterListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         DocumentManagerInterface $documentManager,
         ClassMetadata $metadata
-    ): void {
+    ) {
         $document = new \stdClass();
         $event->getSubject()->willReturn($document);
         $documentManager->getClassMetadata('stdClass')->willReturn($metadata);
@@ -60,7 +60,7 @@ final class NameFilterListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         DocumentManagerInterface $documentManager,
         ClassMetadata $metadata
-    ): void {
+    ) {
         $this->beConstructedWith($documentManager, '_');
 
         $document = new \stdClass();

@@ -33,5 +33,5 @@ interface ResourceGridViewFactoryInterface
         Parameters $parameters,
         MetadataInterface $metadata,
         RequestConfiguration $requestConfiguration
-    ): ResourceGridView;
+    );
 }

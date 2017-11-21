@@ -21,7 +21,7 @@ final class NewResourceFactory implements NewResourceFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create(RequestConfiguration $requestConfiguration, FactoryInterface $factory): ResourceInterface
+    public function create(RequestConfiguration $requestConfiguration, FactoryInterface $factory)
     {
         if (null === $method = $requestConfiguration->getFactoryMethod()) {
             return $factory->createNew();

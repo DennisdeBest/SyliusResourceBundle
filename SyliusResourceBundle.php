@@ -29,7 +29,7 @@ final class SyliusResourceBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
+    public function build(ContainerBuilder $container)
     {
         parent::build($container);
 
@@ -42,7 +42,7 @@ final class SyliusResourceBundle extends Bundle
     /**
      * @return string[]
      */
-    public static function getAvailableDrivers(): array
+    public static function getAvailableDrivers()
     {
         return [
             self::DRIVER_DOCTRINE_ORM,

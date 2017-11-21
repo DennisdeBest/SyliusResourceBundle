@@ -53,7 +53,7 @@ final class OptionsParser implements OptionsParserInterface
     /**
      * {@inheritdoc}
      */
-    public function parseOptions(array $parameters, Request $request, $data = null): array
+    public function parseOptions(array $parameters, Request $request, $data = null)
     {
         return array_map(function ($parameter) use ($request, $data) {
             if (is_array($parameter)) {

@@ -24,12 +24,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class DefaultFormBuilderSpec extends ObjectBehavior
 {
-    function let(EntityManagerInterface $entityManager): void
+    function let(EntityManagerInterface $entityManager)
     {
         $this->beConstructedWith($entityManager);
     }
 
-    function it_is_a_default_form_builder(): void
+    function it_is_a_default_form_builder()
     {
         $this->shouldImplement(DefaultFormBuilderInterface::class);
     }
@@ -39,7 +39,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->identifier = ['id', 'slug'];
@@ -55,7 +55,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['id', 'name', 'description', 'enabled'];
@@ -80,7 +80,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['id', 'name', 'description', 'enabled'];
@@ -106,7 +106,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['name', 'description', 'enabled'];
@@ -129,7 +129,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['name', 'description', 'enabled', 'publishedAt'];
@@ -154,7 +154,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['name', 'description', 'enabled', 'publishedAt'];
@@ -184,7 +184,7 @@ final class DefaultFormBuilderSpec extends ObjectBehavior
         FormBuilderInterface $formBuilder,
         EntityManagerInterface $entityManager,
         ClassMetadataInfo $classMetadataInfo
-    ): void {
+    ) {
         $metadata->getClass('model')->willReturn('AppBundle\Entity\Book');
         $entityManager->getClassMetadata('AppBundle\Entity\Book')->willReturn($classMetadataInfo);
         $classMetadataInfo->fieldNames = ['name', 'description', 'enabled', 'createdAt', 'updatedAt'];

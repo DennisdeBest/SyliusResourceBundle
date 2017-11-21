@@ -26,12 +26,12 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class EventDispatcherSpec extends ObjectBehavior
 {
-    function let(EventDispatcherInterface $eventDispatcher): void
+    function let(EventDispatcherInterface $eventDispatcher)
     {
         $this->beConstructedWith($eventDispatcher);
     }
 
-    function it_implements_event_dispatcher_interface(): void
+    function it_implements_event_dispatcher_interface()
     {
         $this->shouldImplement(ControllerEventDispatcherInterface::class);
     }
@@ -41,7 +41,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn(null);
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -57,7 +57,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn('register');
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -73,7 +73,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         Collection $resources
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn('register');
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -89,7 +89,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn(null);
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -105,7 +105,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn('register');
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -121,7 +121,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn(null);
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');
@@ -137,7 +137,7 @@ final class EventDispatcherSpec extends ObjectBehavior
         MetadataInterface $metadata,
         EventDispatcherInterface $eventDispatcher,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getEvent()->willReturn('register');
         $requestConfiguration->getMetadata()->willReturn($metadata);
         $metadata->getApplicationName()->willReturn('sylius');

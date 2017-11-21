@@ -45,7 +45,7 @@ final class AddCodeFormSubscriber implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
             FormEvents::PRE_SET_DATA => 'preSetData',
@@ -55,7 +55,7 @@ final class AddCodeFormSubscriber implements EventSubscriberInterface
     /**
      * @param FormEvent $event
      */
-    public function preSetData(FormEvent $event): void
+    public function preSetData(FormEvent $event)
     {
         $resource = $event->getData();
         $disabled = false;

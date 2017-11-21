@@ -180,7 +180,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function showAction(Request $request): Response
+    public function showAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -212,7 +212,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function indexAction(Request $request): Response
+    public function indexAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -244,7 +244,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function createAction(Request $request): Response
+    public function createAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -316,7 +316,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function updateAction(Request $request): Response
+    public function updateAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -401,7 +401,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function deleteAction(Request $request): Response
+    public function deleteAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -462,7 +462,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function bulkDeleteAction(Request $request): Response
+    public function bulkDeleteAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -530,7 +530,7 @@ class ResourceController extends Controller
      *
      * @return Response
      */
-    public function applyStateMachineTransitionAction(Request $request): Response
+    public function applyStateMachineTransitionAction(Request $request)
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -594,7 +594,7 @@ class ResourceController extends Controller
      *
      * @throws AccessDeniedException
      */
-    protected function isGrantedOr403(RequestConfiguration $configuration, string $permission): void
+    protected function isGrantedOr403(RequestConfiguration $configuration, string $permission)
     {
         if (!$configuration->hasPermission()) {
             return;
@@ -614,7 +614,7 @@ class ResourceController extends Controller
      *
      * @throws NotFoundHttpException
      */
-    protected function findOr404(RequestConfiguration $configuration): ResourceInterface
+    protected function findOr404(RequestConfiguration $configuration)
     {
         if (null === $resource = $this->singleResourceProvider->get($configuration, $this->repository)) {
             throw new NotFoundHttpException(sprintf('The "%s" has not been found', $this->metadata->getHumanizedName()));

@@ -24,7 +24,7 @@ use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
  */
 final class NameResolverListenerSpec extends ObjectBehavior
 {
-    function let(DocumentManagerInterface $documentManager): void
+    function let(DocumentManagerInterface $documentManager)
     {
         $this->beConstructedWith($documentManager);
     }
@@ -33,7 +33,7 @@ final class NameResolverListenerSpec extends ObjectBehavior
         DocumentManagerInterface $documentManager,
         ResourceControllerEvent $event,
         ClassMetadata $metadata
-    ): void {
+    ) {
         $document = new \stdClass();
         $event->getSubject()->willReturn($document);
         $documentManager->getClassMetadata('stdClass')->willReturn($metadata);
@@ -49,7 +49,7 @@ final class NameResolverListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $metadata,
         NodeInterface $node
-    ): void {
+    ) {
         $document = new \stdClass();
         $parentDocument = new \stdClass();
         $event->getSubject()->willReturn($document);
@@ -74,7 +74,7 @@ final class NameResolverListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $metadata,
         NodeInterface $node
-    ): void {
+    ) {
         $document = new \stdClass();
         $parentDocument = new \stdClass();
         $existingDocument = new \stdClass();

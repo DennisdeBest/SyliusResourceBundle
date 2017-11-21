@@ -23,7 +23,7 @@ final class Disabled extends Constraint
     /**
      * {@inheritdoc}
      */
-    public function getTargets(): array
+    public function getTargets()
     {
         return [self::PROPERTY_CONSTRAINT, self::CLASS_CONSTRAINT];
     }
@@ -31,7 +31,7 @@ final class Disabled extends Constraint
     /**
      * {@inheritdoc}
      */
-    public function validatedBy(): string
+    public function validatedBy()
     {
         return DisabledValidator::class;
     }

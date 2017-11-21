@@ -43,7 +43,7 @@ final class ParametersParser implements ParametersParserInterface
     /**
      * {@inheritdoc}
      */
-    public function parseRequestValues(array $parameters, Request $request): array
+    public function parseRequestValues(array $parameters, Request $request)
     {
         return array_map(function ($parameter) use ($request) {
             if (is_array($parameter)) {

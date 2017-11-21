@@ -20,7 +20,7 @@ final class ResourceLogEntryRepository extends EntityRepository implements Resou
     /**
      * {@inheritdoc}
      */
-    public function createByObjectIdQueryBuilder(string $objectId): QueryBuilder
+    public function createByObjectIdQueryBuilder(string $objectId)
     {
         return $this->createQueryBuilder('log')
             ->where('log.objectId = :objectId')

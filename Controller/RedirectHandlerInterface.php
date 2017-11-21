@@ -24,7 +24,7 @@ interface RedirectHandlerInterface
      *
      * @return Response
      */
-    public function redirectToResource(RequestConfiguration $configuration, ResourceInterface $resource): Response;
+    public function redirectToResource(RequestConfiguration $configuration, ResourceInterface $resource);
 
     /**
      * @param RequestConfiguration $configuration
@@ -32,7 +32,7 @@ interface RedirectHandlerInterface
      *
      * @return Response
      */
-    public function redirectToIndex(RequestConfiguration $configuration, ?ResourceInterface $resource = null): Response;
+    public function redirectToIndex(RequestConfiguration $configuration, ?ResourceInterface $resource = null);
 
     /**
      * @param RequestConfiguration $configuration
@@ -41,7 +41,7 @@ interface RedirectHandlerInterface
      *
      * @return Response
      */
-    public function redirectToRoute(RequestConfiguration $configuration, string $route, array $parameters = []): Response;
+    public function redirectToRoute(RequestConfiguration $configuration, string $route, array $parameters = []);
 
     /**
      * @param RequestConfiguration $configuration
@@ -50,12 +50,12 @@ interface RedirectHandlerInterface
      *
      * @return Response
      */
-    public function redirect(RequestConfiguration $configuration, string $url, int $status = 302): Response;
+    public function redirect(RequestConfiguration $configuration, string $url, int $status = 302);
 
     /**
      * @param RequestConfiguration $configuration
      *
      * @return Response
      */
-    public function redirectToReferer(RequestConfiguration $configuration): Response;
+    public function redirectToReferer(RequestConfiguration $configuration);
 }

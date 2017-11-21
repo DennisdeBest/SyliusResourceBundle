@@ -54,7 +54,7 @@ class ResourceGridView extends GridView
     /**
      * @return MetadataInterface
      */
-    public function getMetadata(): MetadataInterface
+    public function getMetadata()
     {
         return $this->metadata;
     }
@@ -62,7 +62,7 @@ class ResourceGridView extends GridView
     /**
      * @return RequestConfiguration
      */
-    public function getRequestConfiguration(): RequestConfiguration
+    public function getRequestConfiguration()
     {
         return $this->requestConfiguration;
     }

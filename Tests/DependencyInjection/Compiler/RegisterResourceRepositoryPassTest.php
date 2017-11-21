@@ -25,7 +25,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
     /**
      * @test
      */
-    public function it_adds_resource_repository_to_resource_repository_registry(): void
+    public function it_adds_resource_repository_to_resource_repository_registry()
     {
         $this->setDefinition('sylius.registry.resource_repository', new Definition());
         $this->setDefinition('sylius.repository.product', new Definition());
@@ -47,7 +47,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
     /**
      * @test
      */
-    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_registry_does_not_exist(): void
+    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_registry_does_not_exist()
     {
         $this->setDefinition('sylius.repository.product', new Definition());
 
@@ -62,7 +62,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
     /**
      * @test
      */
-    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_resources_do_not_exist(): void
+    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_resources_do_not_exist()
     {
         $this->setDefinition('sylius.registry.resource_repository', new Definition());
         $this->setDefinition('sylius.repository.product', new Definition());
@@ -79,7 +79,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
     /**
      * @test
      */
-    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_resource_repository_does_not_exist(): void
+    public function it_does_not_add_resource_repository_to_resource_repository_registry_if_resource_repository_does_not_exist()
     {
         $this->setDefinition('sylius.registry.resource_repository', new Definition());
 
@@ -100,7 +100,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
     /**
      * {@inheritdoc}
      */
-    protected function registerCompilerPass(ContainerBuilder $container): void
+    protected function registerCompilerPass(ContainerBuilder $container)
     {
         $container->addCompilerPass(new RegisterResourceRepositoryPass());
     }
@@ -114,7 +114,7 @@ final class RegisterResourceRepositoryPassTest extends AbstractCompilerPassTestC
         string $serviceId,
         string $method,
         array $arguments
-    ): void {
+    ) {
         $definition = $this->container->findDefinition($serviceId);
 
         self::assertThat(

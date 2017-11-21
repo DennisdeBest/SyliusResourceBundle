@@ -27,7 +27,7 @@ final class DoctrineODMDriver extends AbstractDoctrineDriver
     /**
      * {@inheritdoc}
      */
-    public function getType(): string
+    public function getType()
     {
         return SyliusResourceBundle::DRIVER_DOCTRINE_MONGODB_ODM;
     }
@@ -35,7 +35,7 @@ final class DoctrineODMDriver extends AbstractDoctrineDriver
     /**
      * {@inheritdoc}
      */
-    protected function addRepository(ContainerBuilder $container, MetadataInterface $metadata): void
+    protected function addRepository(ContainerBuilder $container, MetadataInterface $metadata)
     {
         $modelClass = $metadata->getClass('model');
 
@@ -67,7 +67,7 @@ final class DoctrineODMDriver extends AbstractDoctrineDriver
     /**
      * {@inheritdoc}
      */
-    protected function getManagerServiceId(MetadataInterface $metadata): string
+    protected function getManagerServiceId(MetadataInterface $metadata)
     {
         if ($objectManagerName = $this->getObjectManagerName($metadata)) {
             return sprintf('doctrine_mongodb.odm.%s_document_manager', $objectManagerName);
@@ -79,7 +79,7 @@ final class DoctrineODMDriver extends AbstractDoctrineDriver
     /**
      * {@inheritdoc}
      */
-    protected function getClassMetadataClassname(): string
+    protected function getClassMetadataClassname()
     {
         return 'Doctrine\\ODM\\MongoDB\\Mapping\\ClassMetadata';
     }

@@ -34,7 +34,7 @@ final class StateMachine implements StateMachineInterface
     /**
      * {@inheritdoc}
      */
-    public function can(RequestConfiguration $configuration, ResourceInterface $resource): bool
+    public function can(RequestConfiguration $configuration, ResourceInterface $resource)
     {
         if (!$configuration->hasStateMachine()) {
             throw new \InvalidArgumentException('State machine must be configured to apply transition, check your routing.');
@@ -46,7 +46,7 @@ final class StateMachine implements StateMachineInterface
     /**
      * {@inheritdoc}
      */
-    public function apply(RequestConfiguration $configuration, ResourceInterface $resource): void
+    public function apply(RequestConfiguration $configuration, ResourceInterface $resource)
     {
         if (!$configuration->hasStateMachine()) {
             throw new \InvalidArgumentException('State machine must be configured to apply transition, check your routing.');

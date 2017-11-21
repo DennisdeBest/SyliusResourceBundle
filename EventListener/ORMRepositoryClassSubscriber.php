@@ -22,7 +22,7 @@ final class ORMRepositoryClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @return array
      */
-    public function getSubscribedEvents(): array
+    public function getSubscribedEvents()
     {
         return [
             Events::loadClassMetadata,
@@ -32,7 +32,7 @@ final class ORMRepositoryClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @param LoadClassMetadataEventArgs $eventArgs
      */
-    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs): void
+    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs)
     {
         $this->setCustomRepositoryClass($eventArgs->getClassMetadata());
     }
@@ -40,7 +40,7 @@ final class ORMRepositoryClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @param ClassMetadata $metadata
      */
-    private function setCustomRepositoryClass(ClassMetadata $metadata): void
+    private function setCustomRepositoryClass(ClassMetadata $metadata)
     {
         try {
             $resourceMetadata = $this->resourceRegistry->getByClass($metadata->getName());

@@ -24,5 +24,5 @@ interface ViewHandlerInterface
      *
      * @return mixed
      */
-    public function handle(RequestConfiguration $requestConfiguration, View $view): Response;
+    public function handle(RequestConfiguration $requestConfiguration, View $view);
 }

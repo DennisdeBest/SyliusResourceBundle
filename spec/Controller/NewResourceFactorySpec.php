@@ -21,7 +21,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 final class NewResourceFactorySpec extends ObjectBehavior
 {
-    function it_implements_new_resource_factory_interface(): void
+    function it_implements_new_resource_factory_interface()
     {
         $this->shouldImplement(NewResourceFactoryInterface::class);
     }
@@ -30,7 +30,7 @@ final class NewResourceFactorySpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         FactoryInterface $factory,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getFactoryMethod()->willReturn(null);
 
         $factory->createNew()->willReturn($resource);
@@ -42,7 +42,7 @@ final class NewResourceFactorySpec extends ObjectBehavior
         RequestConfiguration $requestConfiguration,
         FactoryInterface $factory,
         ResourceInterface $resource
-    ): void {
+    ) {
         $requestConfiguration->getFactoryMethod()->willReturn('createNew');
         $requestConfiguration->getFactoryArguments()->willReturn(['00032']);
 

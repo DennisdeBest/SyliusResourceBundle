@@ -63,7 +63,7 @@ final class TwigGridRenderer implements GridRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function render(GridViewInterface $gridView, ?string $template = null): string
+    public function render(GridViewInterface $gridView, ?string $template = null)
     {
         return (string) $this->gridRenderer->render($gridView, $template);
     }
@@ -71,7 +71,7 @@ final class TwigGridRenderer implements GridRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderField(GridViewInterface $gridView, Field $field, $data): string
+    public function renderField(GridViewInterface $gridView, Field $field, $data)
     {
         return (string) $this->gridRenderer->renderField($gridView, $field, $data);
     }
@@ -79,7 +79,7 @@ final class TwigGridRenderer implements GridRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderAction(GridViewInterface $gridView, Action $action, $data = null): string
+    public function renderAction(GridViewInterface $gridView, Action $action, $data = null)
     {
         $type = $action->getType();
         if (!isset($this->actionTemplates[$type])) {
@@ -103,7 +103,7 @@ final class TwigGridRenderer implements GridRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderFilter(GridViewInterface $gridView, Filter $filter): string
+    public function renderFilter(GridViewInterface $gridView, Filter $filter)
     {
         return (string) $this->gridRenderer->renderFilter($gridView, $filter);
     }

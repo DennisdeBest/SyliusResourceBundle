@@ -26,7 +26,7 @@ use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
  */
 final class DefaultParentListenerSpec extends ObjectBehavior
 {
-    function let(DocumentManagerInterface $documentManager): void
+    function let(DocumentManagerInterface $documentManager)
     {
         $this->beConstructedWith($documentManager, '/path/to');
     }
@@ -35,7 +35,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $documentMetadata,
         DocumentManagerInterface $documentManager
-    ): void {
+    ) {
         $event->getSubject()->willReturn(new \stdClass());
         $documentManager->getClassMetadata(\stdClass::class)->willReturn(
             $documentMetadata
@@ -54,7 +54,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $documentMetadata,
         DocumentManagerInterface $documentManager
-    ): void {
+    ) {
         $this->beConstructedWith(
             $documentManager,
             '/path/to',
@@ -79,7 +79,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $documentMetadata,
         DocumentManagerInterface $documentManager
-    ): void {
+    ) {
         $subjectDocument = new \stdClass();
         $parentDocument = new \stdClass();
 
@@ -101,7 +101,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         DocumentManagerInterface $documentManager,
         SessionInterface $session,
         NodeInterface $node
-    ): void {
+    ) {
         $this->beConstructedWith(
             $documentManager,
             '/path/to',
@@ -135,7 +135,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $documentMetadata,
         DocumentManagerInterface $documentManager
-    ): void {
+    ) {
         $this->beConstructedWith(
             $documentManager,
             '/path/to',
@@ -164,7 +164,7 @@ final class DefaultParentListenerSpec extends ObjectBehavior
         ResourceControllerEvent $event,
         ClassMetadata $documentMetadata,
         DocumentManagerInterface $documentManager
-    ): void {
+    ) {
         $subjectDocument = new \stdClass();
 
         $event->getSubject()->willReturn($subjectDocument);

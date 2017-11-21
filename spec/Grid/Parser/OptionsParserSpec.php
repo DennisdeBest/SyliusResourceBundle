@@ -27,16 +27,16 @@ final class OptionsParserSpec extends ObjectBehavior
         ContainerInterface $container,
         ExpressionLanguage $expression,
         PropertyAccessorInterface $propertyAccessor
-    ): void {
+    ) {
         $this->beConstructedWith($container, $expression, $propertyAccessor);
     }
 
-    function it_is_an_options_parser(): void
+    function it_is_an_options_parser()
     {
         $this->shouldImplement(OptionsParserInterface::class);
     }
 
-    function it_parses_options(Request $request): void
+    function it_parses_options(Request $request)
     {
         $request->get('id')->willReturn(7);
 
@@ -50,7 +50,7 @@ final class OptionsParserSpec extends ObjectBehavior
         ContainerInterface $container,
         ExpressionLanguage $expression,
         Request $request
-    ): void {
+    ) {
         $expression->evaluate('service("demo_service")', ['container' => $container])->willReturn('demo_object');
 
         $this
@@ -81,7 +81,7 @@ final class OptionsParserSpec extends ObjectBehavior
         PropertyAccessorInterface $propertyAccessor,
         Request $request,
         ResourceInterface $data
-    ): void {
+    ) {
         $propertyAccessor->getValue($data, 'id')->willReturn(21);
 
         $this

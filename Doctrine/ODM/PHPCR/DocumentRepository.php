@@ -28,7 +28,7 @@ class DocumentRepository extends BaseDocumentRepository implements RepositoryInt
     /**
      * {@inheritdoc}
      */
-    public function createPaginator(array $criteria = [], array $sorting = []): iterable
+    public function createPaginator(array $criteria = [], array $sorting = [])
     {
         $queryBuilder = $this->getCollectionQueryBuilder();
 
@@ -41,7 +41,7 @@ class DocumentRepository extends BaseDocumentRepository implements RepositoryInt
     /**
      * {@inheritdoc}
      */
-    public function add(ResourceInterface $resource): void
+    public function add(ResourceInterface $resource)
     {
         $this->dm->persist($resource);
         $this->dm->flush();
@@ -50,7 +50,7 @@ class DocumentRepository extends BaseDocumentRepository implements RepositoryInt
     /**
      * {@inheritdoc}
      */
-    public function remove(ResourceInterface $resource): void
+    public function remove(ResourceInterface $resource)
     {
         if (null !== $this->find($resource->getId())) {
             $this->dm->remove($resource);

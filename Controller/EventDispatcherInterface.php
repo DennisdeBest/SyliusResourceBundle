@@ -29,7 +29,7 @@ interface EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent;
+    );
 
     /**
      * @param string $eventName
@@ -42,7 +42,7 @@ interface EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         $resources
-    ): ResourceControllerEvent;
+    );
 
     /**
      * @param string $eventName
@@ -55,7 +55,7 @@ interface EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent;
+    );
 
     /**
      * @param string $eventName
@@ -68,7 +68,7 @@ interface EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent;
+    );
 
     /**
      * @param string $eventName
@@ -81,5 +81,5 @@ interface EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent;
+    );
 }

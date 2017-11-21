@@ -39,7 +39,7 @@ final class EventDispatcher implements EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent {
+    ) {
         $eventName = $requestConfiguration->getEvent() ?: $eventName;
         $metadata = $requestConfiguration->getMetadata();
         $event = new ResourceControllerEvent($resource);
@@ -56,7 +56,7 @@ final class EventDispatcher implements EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         $resources
-    ): ResourceControllerEvent {
+    ) {
         $eventName = $requestConfiguration->getEvent() ?: $eventName;
         $metadata = $requestConfiguration->getMetadata();
         $event = new ResourceControllerEvent($resources);
@@ -73,7 +73,7 @@ final class EventDispatcher implements EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent {
+    ) {
         $eventName = $requestConfiguration->getEvent() ?: $eventName;
         $metadata = $requestConfiguration->getMetadata();
         $event = new ResourceControllerEvent($resource);
@@ -90,7 +90,7 @@ final class EventDispatcher implements EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent {
+    ) {
         $eventName = $requestConfiguration->getEvent() ?: $eventName;
         $metadata = $requestConfiguration->getMetadata();
         $event = new ResourceControllerEvent($resource);
@@ -107,7 +107,7 @@ final class EventDispatcher implements EventDispatcherInterface
         string $eventName,
         RequestConfiguration $requestConfiguration,
         ResourceInterface $resource
-    ): ResourceControllerEvent {
+    ) {
         $eventName = $requestConfiguration->getEvent() ?: $eventName;
         $metadata = $requestConfiguration->getMetadata();
         $event = new ResourceControllerEvent($resource);

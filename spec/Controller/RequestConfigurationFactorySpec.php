@@ -23,12 +23,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RequestConfigurationFactorySpec extends ObjectBehavior
 {
-    function let(ParametersParserInterface $parametersParser): void
+    function let(ParametersParserInterface $parametersParser)
     {
         $this->beConstructedWith($parametersParser, RequestConfiguration::class);
     }
 
-    function it_implements_request_configuration_factory_interface(): void
+    function it_implements_request_configuration_factory_interface()
     {
         $this->shouldImplement(RequestConfigurationFactoryInterface::class);
     }
@@ -39,7 +39,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -60,7 +60,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -81,7 +81,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -102,7 +102,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -123,7 +123,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -145,7 +145,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $request->headers = $headersBag;
         $request->attributes = $attributesBag;
 
@@ -167,7 +167,7 @@ final class RequestConfigurationFactorySpec extends ObjectBehavior
         Request $request,
         ParameterBag $headersBag,
         ParameterBag $attributesBag
-    ): void {
+    ) {
         $this->beConstructedWith($parametersParser, RequestConfiguration::class, ['sortable' => true]);
 
         $request->headers = $headersBag;

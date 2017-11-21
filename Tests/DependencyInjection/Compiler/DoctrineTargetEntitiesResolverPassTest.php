@@ -23,7 +23,7 @@ final class DoctrineTargetEntitiesResolverPassTest extends AbstractCompilerPassT
     /**
      * @test
      */
-    public function it_adds_method_call_to_resolve_doctrine_target_entities_with_interface_given_as_fqcn(): void
+    public function it_adds_method_call_to_resolve_doctrine_target_entities_with_interface_given_as_fqcn()
     {
         $this->setDefinition('doctrine.orm.listeners.resolve_target_entity', new Definition());
 
@@ -46,7 +46,7 @@ final class DoctrineTargetEntitiesResolverPassTest extends AbstractCompilerPassT
     /**
      * @test
      */
-    public function it_adds_method_call_to_resolve_doctrine_target_entities_with_interface_given_as_parameter(): void
+    public function it_adds_method_call_to_resolve_doctrine_target_entities_with_interface_given_as_parameter()
     {
         $this->setDefinition('doctrine.orm.listeners.resolve_target_entity', new Definition());
 
@@ -70,7 +70,7 @@ final class DoctrineTargetEntitiesResolverPassTest extends AbstractCompilerPassT
     /**
      * @test
      */
-    public function it_ignores_resources_without_interface(): void
+    public function it_ignores_resources_without_interface()
     {
         $this->setDefinition('doctrine.orm.listeners.resolve_target_entity', new Definition());
 
@@ -85,7 +85,7 @@ final class DoctrineTargetEntitiesResolverPassTest extends AbstractCompilerPassT
     /**
      * @test
      */
-    public function it_adds_doctrine_event_listener_tag_to_target_entities_resolver_if_not_exists(): void
+    public function it_adds_doctrine_event_listener_tag_to_target_entities_resolver_if_not_exists()
     {
         $this->setDefinition('doctrine.orm.listeners.resolve_target_entity', new Definition());
         $this->setParameter('sylius.resources', []);
@@ -102,7 +102,7 @@ final class DoctrineTargetEntitiesResolverPassTest extends AbstractCompilerPassT
     /**
      * {@inheritdoc}
      */
-    protected function registerCompilerPass(ContainerBuilder $container): void
+    protected function registerCompilerPass(ContainerBuilder $container)
     {
         $container->addCompilerPass(new DoctrineTargetEntitiesResolverPass());
     }

@@ -53,7 +53,7 @@ final class ORMTranslatableListener implements EventSubscriber
     /**
      * {@inheritdoc}
      */
-    public function getSubscribedEvents(): array
+    public function getSubscribedEvents()
     {
         return [
             Events::loadClassMetadata,
@@ -66,7 +66,7 @@ final class ORMTranslatableListener implements EventSubscriber
      *
      * @param LoadClassMetadataEventArgs $eventArgs
      */
-    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs): void
+    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs)
     {
         $classMetadata = $eventArgs->getClassMetadata();
         $reflection = $classMetadata->reflClass;
@@ -87,7 +87,7 @@ final class ORMTranslatableListener implements EventSubscriber
     /**
      * @param LifecycleEventArgs $args
      */
-    public function postLoad(LifecycleEventArgs $args): void
+    public function postLoad(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
 
@@ -103,7 +103,7 @@ final class ORMTranslatableListener implements EventSubscriber
      *
      * @param ClassMetadata $metadata
      */
-    private function mapTranslatable(ClassMetadata $metadata): void
+    private function mapTranslatable(ClassMetadata $metadata)
     {
         $className = $metadata->name;
 
@@ -138,7 +138,7 @@ final class ORMTranslatableListener implements EventSubscriber
      *
      * @param ClassMetadata $metadata
      */
-    private function mapTranslation(ClassMetadata $metadata): void
+    private function mapTranslation(ClassMetadata $metadata)
     {
         $className = $metadata->name;
 
@@ -200,7 +200,7 @@ final class ORMTranslatableListener implements EventSubscriber
      *
      * @return bool
      */
-    private function hasUniqueConstraint(ClassMetadata $metadata, array $columns): bool
+    private function hasUniqueConstraint(ClassMetadata $metadata, array $columns)
     {
         if (!isset($metadata->table['uniqueConstraints'])) {
             return false;

@@ -26,12 +26,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class ResourceGridViewFactorySpec extends ObjectBehavior
 {
-    function let(DataProviderInterface $dataProvider, ParametersParserInterface $parametersParser): void
+    function let(DataProviderInterface $dataProvider, ParametersParserInterface $parametersParser)
     {
         $this->beConstructedWith($dataProvider, $parametersParser);
     }
 
-    function it_implements_resource_grid_view_factory_interface(): void
+    function it_implements_resource_grid_view_factory_interface()
     {
         $this->shouldImplement(ResourceGridViewFactoryInterface::class);
     }
@@ -43,7 +43,7 @@ final class ResourceGridViewFactorySpec extends ObjectBehavior
         MetadataInterface $resourceMetadata,
         Request $request,
         RequestConfiguration $requestConfiguration
-    ): void {
+    ) {
         $parameters = new Parameters();
 
         $expectedResourceGridView = new ResourceGridView(

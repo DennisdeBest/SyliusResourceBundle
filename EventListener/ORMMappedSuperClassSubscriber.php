@@ -24,7 +24,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @return array
      */
-    public function getSubscribedEvents(): array
+    public function getSubscribedEvents()
     {
         return [
             Events::loadClassMetadata,
@@ -34,7 +34,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @param LoadClassMetadataEventArgs $eventArgs
      */
-    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs): void
+    public function loadClassMetadata(LoadClassMetadataEventArgs $eventArgs)
     {
         $metadata = $eventArgs->getClassMetadata();
 
@@ -50,7 +50,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @param ClassMetadataInfo $metadata
      */
-    private function convertToEntityIfNeeded(ClassMetadataInfo $metadata): void
+    private function convertToEntityIfNeeded(ClassMetadataInfo $metadata)
     {
         if (false === $metadata->isMappedSuperclass) {
             return;
@@ -71,7 +71,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
      * @param ClassMetadataInfo $metadata
      * @param Configuration $configuration
      */
-    private function setAssociationMappings(ClassMetadataInfo $metadata, Configuration $configuration): void
+    private function setAssociationMappings(ClassMetadataInfo $metadata, Configuration $configuration)
     {
         $class = $metadata->getName();
         if (!class_exists($class)) {
@@ -110,7 +110,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
     /**
      * @param ClassMetadataInfo $metadata
      */
-    private function unsetAssociationMappings(ClassMetadataInfo $metadata): void
+    private function unsetAssociationMappings(ClassMetadataInfo $metadata)
     {
         if (false === $this->isResource($metadata)) {
             return;
@@ -128,7 +128,7 @@ final class ORMMappedSuperClassSubscriber extends AbstractDoctrineSubscriber
      *
      * @return bool
      */
-    private function isRelation(int $type): bool
+    private function isRelation(int $type)
     {
         return in_array(
             $type,

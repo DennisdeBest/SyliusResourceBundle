@@ -21,7 +21,7 @@ final class SingleResourceProvider implements SingleResourceProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function get(RequestConfiguration $requestConfiguration, RepositoryInterface $repository): ?ResourceInterface
+    public function get(RequestConfiguration $requestConfiguration, RepositoryInterface $repository)
     {
         $repositoryMethod = $requestConfiguration->getRepositoryMethod();
         if (null !== $repositoryMethod) {

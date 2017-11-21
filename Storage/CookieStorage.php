@@ -42,7 +42,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
             KernelEvents::REQUEST => [['onKernelRequest', 1024]],
@@ -53,7 +53,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * @param GetResponseEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event): void
+    public function onKernelRequest(GetResponseEvent $event)
     {
         if (!$event->isMasterRequest()) {
             return;
@@ -66,7 +66,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * @param FilterResponseEvent $event
      */
-    public function onKernelResponse(FilterResponseEvent $event): void
+    public function onKernelResponse(FilterResponseEvent $event)
     {
         if (!$event->isMasterRequest()) {
             return;
@@ -84,7 +84,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public function has(string $name): bool
+    public function has(string $name)
     {
         return !in_array($this->get($name), ['', null], true);
     }
@@ -100,7 +100,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public function set(string $name, $value): void
+    public function set(string $name, $value)
     {
         $this->responseCookies->set($name, $value);
     }
@@ -108,7 +108,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public function remove(string $name): void
+    public function remove(string $name)
     {
         $this->set($name, null);
     }
@@ -116,7 +116,7 @@ final class CookieStorage implements StorageInterface, EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public function all(): array
+    public function all()
     {
         return array_merge($this->responseCookies->all(), $this->requestCookies->all());
     }

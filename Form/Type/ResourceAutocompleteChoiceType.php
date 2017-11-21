@@ -43,7 +43,7 @@ class ResourceAutocompleteChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if (!$options['multiple']) {
             $builder->addModelTransformer(
@@ -72,7 +72,7 @@ class ResourceAutocompleteChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildView(FormView $view, FormInterface $form, array $options): void
+    public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars['multiple'] = $options['multiple'];
         $view->vars['choice_name'] = $options['choice_name'];
@@ -83,7 +83,7 @@ class ResourceAutocompleteChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
             ->setRequired([
@@ -110,7 +110,7 @@ class ResourceAutocompleteChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent(): string
+    public function getParent()
     {
         return HiddenType::class;
     }
@@ -118,7 +118,7 @@ class ResourceAutocompleteChoiceType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix(): string
+    public function getBlockPrefix()
     {
         return 'sylius_resource_autocomplete_choice';
     }

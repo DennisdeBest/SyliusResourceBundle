@@ -22,7 +22,7 @@ final class NotNullExpressionFunctionProvider implements ExpressionFunctionProvi
     /**
      * {@inheritdoc}
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
         return [
             new ExpressionFunction('notFoundOnNull', function ($result) {

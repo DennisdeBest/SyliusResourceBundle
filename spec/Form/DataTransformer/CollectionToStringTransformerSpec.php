@@ -20,42 +20,42 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 final class CollectionToStringTransformerSpec extends ObjectBehavior
 {
-    function let(): void
+    function let()
     {
         $this->beConstructedWith(',');
     }
 
-    function it_is_data_transformer(): void
+    function it_is_data_transformer()
     {
         $this->shouldImplement(DataTransformerInterface::class);
     }
 
-    function it_transforms_collection_to_string(): void
+    function it_transforms_collection_to_string()
     {
         $this->transform(new ArrayCollection(['abc', 'def', 'ghi', 'jkl']))->shouldReturn('abc,def,ghi,jkl');
     }
 
-    function it_transforms_string_to_collection(): void
+    function it_transforms_string_to_collection()
     {
         $this->reverseTransform('abc,def,ghi,jkl')->shouldBeLike(new ArrayCollection(['abc', 'def', 'ghi', 'jkl']));
     }
 
-    function it_throws_transformation_failed_exception_if_transform_argument_is_not_a_collection(): void
+    function it_throws_transformation_failed_exception_if_transform_argument_is_not_a_collection()
     {
         $this->shouldThrow(TransformationFailedException::class)->during('transform', [new \stdClass()]);
     }
 
-    function it_throws_transformation_failed_exception_if_transform_argument_is_not_a_string(): void
+    function it_throws_transformation_failed_exception_if_transform_argument_is_not_a_string()
     {
         $this->shouldThrow(TransformationFailedException::class)->during('reverseTransform', [new \stdClass()]);
     }
 
-    function it_returns_empty_string_if_empty_collection_given(): void
+    function it_returns_empty_string_if_empty_collection_given()
     {
         $this->transform(new ArrayCollection())->shouldReturn('');
     }
 
-    function it_returns_empty_collection_if_empty_string_given(): void
+    function it_returns_empty_collection_if_empty_string_given()
     {
         $this->reverseTransform('')->shouldBeLike(new ArrayCollection());
     }
